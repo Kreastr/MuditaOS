@@ -109,9 +109,9 @@ namespace gui
         time = new TimeSetFmtSpinner(body->centerBox);
         time->setMaximumSize(style::bell_base_layout::w, style::bell_base_layout::h);
         time->setFont(bellMainStyle::mainWindow::time::font);
+        time->updateFmtFont(style::window::font::large);
         time->setAlignment(Alignment(Alignment::Horizontal::Center, Alignment::Vertical::Center));
         time->setEditMode(EditMode::Browse);
-        time->setFont(mainWindow::time::font);
         time->activeItem = false;
 
         bottomBox = new HBox(body->lastBox, 0, 0, 0, 0);
@@ -217,7 +217,6 @@ namespace gui
     void BellHomeScreenWindow::setTime(std::time_t newTime)
     {
         time->setTime(newTime);
-        time->setTimeFormatSpinnerVisibility(false);
     }
 
     void BellHomeScreenWindow::setTimeFormat(utils::time::Locale::TimeFormat fmt)
