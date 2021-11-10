@@ -111,8 +111,10 @@ namespace gui
                                 "",
                                 [=]() -> bool {
                                     auto data                        = std::make_unique<SwitchData>();
-                                    data->ignoreCurrentWindowOnStack = true;
-                                    this->application->switchWindow(gui::name::window::main_window, std::move(data));
+                                    this->application->returnToPreviousWindow(3);
+                                    //                                    data->ignoreCurrentWindowOnStack = true;
+                                    //                                    this->application->switchWindow(gui::name::window::main_window,
+                                    //                                    std::move(data));
                                     return true;
                                 }});
         metaData->ignoreCurrentWindowOnStack = true;

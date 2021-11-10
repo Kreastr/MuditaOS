@@ -53,6 +53,8 @@ namespace gui::option
                                                         app::manager::OnSwitchBehaviour::RunInBackground);
         }
         case ContactOperation::Details: {
+
+            LOG_ERROR("TY sie wysylasz?");
             data->ignoreCurrentWindowOnStack = true;
             return app::manager::Controller::sendAction(app,
                                                         app::manager::actions::ShowContactDetails,
