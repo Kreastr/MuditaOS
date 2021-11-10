@@ -33,12 +33,16 @@
 #include <FreeRTOS.h>
 #include <MIMXRT1051.h>
 #include <log/log.hpp>
+#include <logdump/logdump.h>
 #include <task.h>
 #include <macros.h>
 
 void __attribute__((noreturn, used)) _exit(int code)
 {
     LOG_INFO("_exit %d", code);
+    if (dumpLogs() != 1) {
+        LOG_ERROR("Cannot dump logs");
+    }
     haltIfDebugging();
     vTaskEndScheduler();
     NVIC_SystemReset();

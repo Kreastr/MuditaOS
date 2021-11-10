@@ -3,6 +3,7 @@ add_library(module-vfs STATIC)
 module_is_test_entity()
 
 add_subdirectory(paths)
+add_subdirectory(logdump)
 
 target_sources(module-vfs
     PRIVATE

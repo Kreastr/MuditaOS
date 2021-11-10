@@ -148,6 +148,8 @@ namespace sys
 
         void Run() override;
 
+        void PowerOff();
+
         void StartSystemServices();
 
         static bool RunService(std::shared_ptr<Service> service, Service *caller, TickType_t timeout = 5000);
