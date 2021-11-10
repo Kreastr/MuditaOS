@@ -42,7 +42,7 @@ namespace gui::option
                                        ContactOperation contactOperation,
                                        const ContactRecord &contactRecord)
     {
-        auto data = std::make_unique<PhonebookItemData>(std::make_shared<ContactRecord>(contactRecord));
+        auto data = std::make_unique<PhonebookItemData>(std::make_shared<ContactRecord>(contactRecord), true);
 
         switch (contactOperation) {
         case ContactOperation::Add: {
@@ -53,8 +53,6 @@ namespace gui::option
                                                         app::manager::OnSwitchBehaviour::RunInBackground);
         }
         case ContactOperation::Details: {
-
-            LOG_ERROR("TY sie wysylasz?");
             data->ignoreCurrentWindowOnStack = true;
             return app::manager::Controller::sendAction(app,
                                                         app::manager::actions::ShowContactDetails,
