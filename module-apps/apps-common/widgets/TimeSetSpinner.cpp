@@ -224,7 +224,11 @@ namespace gui
 
     auto TimeSetSpinner::getColonImage(const std::string &colonFont) const noexcept -> std::string
     {
-        return colonFontMap.find(colonFont)->second;
+        if (auto entry = colonFontMap.find(colonFont); entry != colonFontMap.end()) {
+            return entry->second;
+        }
+        LOG_FATAL("Unsupported colon font: %s", colonFont.c_str());
+        return "";
     }
 
     auto TimeSetSpinner::getColonMargins(const std::string &colonFont) const noexcept -> Margins
